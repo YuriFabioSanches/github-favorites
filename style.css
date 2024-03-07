@@ -1,0 +1,333 @@
+/* Configurações iniciais do projeto */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 62.5%;
+
+    --ff-default: "Roboto", sans-serif;
+
+    --bg-body: #000000;
+    --tt-body: #FFFFFF; 
+
+    --bg-input: #06181C;
+    --tt-input-placeholder: #7C7C8A;
+
+    --bg-button-search: hsl(195, 91%, 25%);
+    --tt-button-search: #FFFFFF;
+
+    --tt-table: #E1E1E6;
+    --bg-table-header: #092D38;
+    --bg-table-even-row: rgba(6, 22, 27, 0.5);
+    --bg-table-odd-row: #06181C;
+
+    --tt-button-remove: #F75A68;
+
+    --tt-no-favs: #4E5455;
+
+    --border-table: #4A808C;
+
+    --bg-scroll-bar: #4A808C;
+}
+
+/* Classe para acessibilidade */
+.sr-only {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	-webkit-clip-path: inset(50%);
+		clip-path: inset(50%);
+	height: 1p;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	white-space: nowrap;
+}
+
+/* ajustes do corpo da aplicação */
+body * {
+    font-family: var(--ff-default);
+    font-size: 1.6rem;
+}
+
+body {
+    height: 100vh;
+    background: var(--bg-body);
+}
+
+#app{
+    box-sizing: content-box;
+    padding: 11.6rem;
+    max-width: 112rem;
+    margin: 0 auto;
+}
+
+/* Barra de busca */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8.8rem;
+}
+
+header .search-wrapper {
+    display: flex;
+    gap: .8rem;
+    margin-top: -2rem;
+}
+
+header .search-wrapper input {
+    padding: 1.6rem;
+    width: 46.2rem;
+    background: var(--bg-input);
+    border-radius: .5rem;
+    border: none;
+    color: var(--tt-body);
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+}
+
+header .search-wrapper input::placeholder {
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 1.6rem;
+
+    color: var(--tt-input-placeholder);
+}
+
+header .search-wrapper button {
+    font-weight: 700;
+    font-size: 1.4rem;
+    line-height: 2.4rem;
+    text-transform: uppercase;
+    color: var(--tt-button-search);
+    padding: 1.2rem 3.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .8rem;
+    background: var(--bg-button-search);
+    border-radius: .5rem;
+    border: none;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+
+header .search-wrapper button:hover{
+    background: var(--tt-button-search);
+    color: var(--bg-button-search);
+}
+
+header .search-wrapper button:hover svg path{
+    fill: var(--bg-button-search);
+}
+
+/* Tabela de favoritos */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-width: 1px 1px 1px 1px;
+    border-style: solid;
+    border-color: var(--border-table);
+    border-radius: .6rem;
+}
+
+table * {
+    font-size: 2rem;
+    color: var(--tt-table);
+}
+
+table tbody, thead {
+    display: block;
+}
+
+/* table header */
+table th {
+    background: var(--bg-table-header);
+    text-align: left;
+    font-weight: bold;
+    padding: 1.6rem 2.4rem 1.6rem 4rem;
+    line-height: 3.2rem;
+}
+
+/* table widht */
+table th:nth-child(1) {
+    width: 50.4rem;
+}
+
+table th:nth-child(2) {
+    width: 21.9rem;
+}
+
+table th:nth-child(3) {
+    width: 21.9rem;
+}
+
+table th:nth-child(4) {
+    width: 17.8rem;
+}
+
+tbody td:nth-child(1) {
+    width: 50.4rem;
+}
+
+tbody td:nth-child(2) {
+    width: 21.9rem;
+}
+
+tbody td:nth-child(3) {
+    width: 21.9rem;
+}
+
+tbody td:nth-child(4) {
+    width: 17.8rem;
+}
+
+/* table border */
+tbody td {
+    border-bottom: 1px solid #4A808C;
+}
+
+table tr:first-child th:first-child {
+    border-top-left-radius: 6px;
+}
+
+table tr:first-child th:last-child {
+    border-top-right-radius: 6px;
+}
+
+table tr:last-child td:first-child {
+    border-bottom-left-radius: 6px;
+}
+
+table tr:last-child td:last-child {
+    border-bottom-right-radius: 6px;
+}
+
+/* table color */
+table tbody tr:nth-child(even) {
+    background: var(--bg-table-odd-row);
+}
+
+table tbody tr:nth-child(odd) {
+    background: var(--bg-table-even-row);
+}
+
+/* table body */
+tbody {
+    max-height: 53rem;
+    overflow-y: auto;
+    scrollbar-color: var(--bg-scroll-bar) transparent;
+    scrollbar-width: .6rem;
+}
+
+table td {
+    padding: 2.4rem 2.4rem 2.4rem 4rem;
+    text-align: left;
+}
+
+/* user td */
+td.user {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+}
+  
+td.user img {
+    width: 5.6rem;
+    height: 5.6rem;
+    object-fit: cover;
+    border-radius: 50%;
+}
+  
+td.user a {
+    text-decoration: none;
+}
+  
+td.user a p {
+    font-weight: 700;
+    line-height: 3.2rem;
+}
+
+/* repositories tb */
+td.repositories {
+    font-weight: 700;
+    line-height: 3.2rem;
+}
+
+/* followers tb */
+td.followers {
+    font-weight: 700;
+    line-height: 3.2rem;
+}
+
+/* actions tb */
+td.actions button.remove {
+    font-weight: bold;
+    line-height: 3.2rem;
+
+    background: none;
+    border: none;
+  
+    color: var(--tt-button-remove);
+
+    cursor: pointer;
+    transition: all 200ms ease;
+}
+
+td .remove:hover {
+    filter: contrast(300%);
+}
+
+/* empty table */
+.empty-state {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 52rem;
+    border-radius: 0 0 1.2rem 1.2rem;
+    gap: 6rem;
+    box-shadow: -2px 15px 2rem 0px rgb(0 0 0 / 50%);
+    background-color: #030b0d;
+    border: 1px solid #4A808C;
+}
+
+.empty-state h2 {
+    font-family: 'Roboto Mono', sans-serif;
+    font-weight: 700;
+    font-size: 4rem;
+    line-height: 2.5rem;
+    color: #4E5455;
+}
+  
+  .empty-state svg {
+    width: 13.5rem;
+    height: 12.5rem;
+}
+
+/* Scrollbar */
+tbody::-webkit-scrollbar {
+    width: .6rem;
+}
+  
+  /* Track */
+  tbody::-webkit-scrollbar-track {
+    background: transparent; 
+}
+   
+  /* Handle */
+  tbody::-webkit-scrollbar-thumb {
+    background: var(--bg-scroll-bar);
+    border-radius: 1rem;
+}
+  
+  /* Handle on hover */
+  tbody::-webkit-scrollbar-thumb:hover {
+    background: #375f68; 
+}
